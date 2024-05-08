@@ -20,3 +20,17 @@ body{
     left: 0;
 }
 
+.racket{
+    height: 100px;
+    width: 1px;
+    background-color: red;
+    position: absolute;
+}
+
+.leftRacket{
+    left: 30px;
+}
+.rightRacket{
+    right: 30px;
+}
+
