@@ -12,11 +12,8 @@ let speedRightRacket = 10
 let leftRacketDirection = 1 
 let rightRacketDirection = 1 
 
-
-
 leftRacket.style.top = leftUp + 'px'
 rightRacket.style.top = rightUp + 'px'
-
 
 document.addEventListener('keydown',(e)=>{
     //leftRacket
