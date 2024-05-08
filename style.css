@@ -21,16 +21,16 @@ body{
 }
 
 .racket{
-    height: 100px;
+    height: 50px;
     width: 1px;
     background-color: red;
     position: absolute;
 }
 
 .leftRacket{
-    left: 30px;
+    left: 10px;
 }
 .rightRacket{
-    right: 30px;
+    right: 10px;
 }
 

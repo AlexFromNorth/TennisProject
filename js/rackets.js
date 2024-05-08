@@ -6,8 +6,13 @@ const rightRacket = document.querySelector('.rightRacket')
 let leftUp = 30
 let rightUp = 30
 
-let speedLeft = 10
-let speedRight = 10
+let speedLeftRacket = 10
+let speedRightRacket = 10
+
+let leftRacketDirection = 1 
+let rightRacketDirection = 1 
+
+
 
 leftRacket.style.top = leftUp + 'px'
 rightRacket.style.top = rightUp + 'px'
@@ -16,21 +21,25 @@ rightRacket.style.top = rightUp + 'px'
 document.addEventListener('keydown',(e)=>{
     //leftRacket
     if(e.code === 'KeyW' && leftUp > 0){
-        leftUp -= speedLeft
+        leftRacketDirection = -1
+        leftUp += speedLeftRacket * leftRacketDirection
         leftRacket.style.top = leftUp + 'px'
     } 
     else if(e.code === 'KeyS' && leftUp + leftRacket.clientHeight < wrapper.clientHeight){
-        leftUp += speedLeft
+        leftRacketDirection = 1
+        leftUp += speedLeftRacket * leftRacketDirection 
         leftRacket.style.top = leftUp + 'px'
     }    
 
     //rightRacket
     if(e.code === 'ArrowUp' && rightUp > 0){
-        rightUp -= speedRight
+        rightRacketDirection = -1
+        rightUp += speedRightRacket * rightRacketDirection
         rightRacket.style.top = rightUp + 'px'
     } 
     else if(e.code === 'ArrowDown' && rightUp + rightRacket.clientHeight < wrapper.clientHeight){
-        rightUp += speedRight
+        rightRacketDirection = 1
+        rightUp += speedRightRacket * rightRacketDirection
         rightRacket.style.top = rightUp + 'px'
     }   
 })

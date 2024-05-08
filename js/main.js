@@ -4,16 +4,7 @@ const ball = document.querySelector('.ball')
 let countLeft = 0,
     countRight = 0
 
-function updateCount(){
-    count.textContent = countLeft + " : " + countRight
-}
-
 updateCount()
-
-// random vector ball
-function random(){
-   return Math.round(Math.random()) == 0 ? 1 : -1;
-}
 
 let up = wrapper.clientHeight / 2 
 let upVector = 3 * random()
@@ -21,6 +12,13 @@ let upVector = 3 * random()
 let left = wrapper.clientWidth / 2
 let leftVector = 3 * random()
 
+function setDefaultBallPosition(){
+    up = wrapper.clientHeight / 2 
+    left = wrapper.clientWidth / 2
+
+    upVector = 3 * random()
+    leftVector = 3 * random()
+}
 
 
 setInterval(()=>{
@@ -35,22 +33,25 @@ setInterval(()=>{
         leftVector = -leftVector
         countLeft++
         updateCount()
+        setDefaultBallPosition()
     }
     else if(left < 0){
         leftVector = -leftVector
         countRight++
         updateCount()
+        setDefaultBallPosition()
     }
     
-
     //left racket collider 
     if(left < leftRacket.offsetLeft && up >= leftUp && up <= leftUp + leftRacket.clientHeight){
-        leftVector = -leftVector
+        leftVector = -leftVector 
+        upVector = (upVector + (speedLeftRacket/2 * leftRacketDirection)) / 2 
     }
 
     //right racket collider 
     if(left > rightRacket.offsetLeft - ball.clientWidth && up >= rightUp && up <= rightUp + rightRacket.clientHeight){
         leftVector = -leftVector
+        upVector = (upVector + (speedRightRacket/2 * rightRacketDirection)) / 2 
     }
 
     up += upVector
